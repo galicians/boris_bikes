@@ -4,10 +4,17 @@ class Garage
 
 include BikeContainer
 	
-	DEFAULT_CAPACITY = 30
+	DEFAULT_CAPACITY = 40
 
 	def initialize(options = {}) 
 		self.capacity = options.fetch(:capacity, capacity)
+	end
+
+	def fix_bikes(bike)
+		bike.fix!
+	end
+
+	def release(bike,van)
 	end
 
 end
