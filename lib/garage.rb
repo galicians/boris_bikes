@@ -14,7 +14,5 @@ include BikeContainer
 		bike.fix!
 	end
 
-	def release(bike,van)
-	end
 
 end

@@ -37,7 +37,7 @@ describe Van do
 
 	it "should release a bike to the docking station" do
 		van.dock(bike)
-		van.release(bike,station)
+		station.dock(van.release(bike))
 		expect(van.bike_count).to eq(0)
 		expect(station.bike_count).to eq(1)
 	end
@@ -45,11 +45,19 @@ describe Van do
 	it 'should release a bike to the garage' do
 		van.dock(bike)
 		garage = Garage.new
-		van.release(bike,garage)
+		garage.dock(van.release(bike))
 		expect(van.bike_count).to eq(0)
 		expect(garage.bike_count).to eq(1)
 	end
 
+
+	it "dock station should provide the list of available bikes" do
+		working_bike, broken_bike = Bike.new, Bike.new
+		broken_bike.break!
+		van.dock(working_bike)
+		van.dock(broken_bike)
+		expect(van.available_bikes).to eq([working_bike])
+	end
 
 
 	

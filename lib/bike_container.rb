@@ -23,9 +23,11 @@ module BikeContainer
     bikes << bike
   end
 
-  def release(bike)
-    bikes.delete(bike)
-  end
+	def release(bike)
+		raise "#{self.class.to_s} is empty" if available_bikes.empty?
+		bikes.delete(bike)
+		return bike
+	end
 
   def full?
     bike_count == capacity
