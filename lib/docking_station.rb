@@ -8,9 +8,13 @@ class DockingStation
 
 	def initialize(options = {}) 
 		self.capacity = options.fetch(:capacity, capacity)
+
+
 	end
 
-	
+	# def calling_van(van)
+	# 	van.delivery(self) if self.broken_bikes > 2 
+	# end
 
 
 end

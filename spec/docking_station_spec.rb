@@ -46,10 +46,21 @@ describe DockingStation do
 		expect(lambda { station.release(bike) }).to raise_error(RuntimeError)
 	end
 
-	# it 'van to replenish when 3 broken bikes' do
-	# 	3.times { station.dock(bike.break!) }
-	# 	allow(station).to receive(:release(bike)).and_return(bike))
+	it 'dock station should provide the list of broken bikes' do
+		broken_bike, working_bike = Bike.new, Bike.new
+		broken_bike.break!
+		station.dock(broken_bike)
+		expect(station.broken_bikes).to eq(broken_bike)
+	end
+
+	# it 'will call the van when 3 broken bikes' do
+	# 	van1 = double :van
+	# 	station = DockingStation.new van
+	# 	3.times { station.dock(bike.break!)}
+	# 	expect(van1).to receive(:delivery(station))
 	# end
+
+	
 	
 end
 
