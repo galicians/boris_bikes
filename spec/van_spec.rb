@@ -59,6 +59,7 @@ describe Van do
 		expect(van.available_bikes).to eq([working_bike])
 	end
 
+	
 
 	
 end

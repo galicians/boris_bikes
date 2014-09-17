@@ -50,7 +50,7 @@ describe DockingStation do
 		broken_bike, working_bike = Bike.new, Bike.new
 		broken_bike.break!
 		station.dock(broken_bike)
-		expect(station.broken_bikes).to eq(broken_bike)
+		expect(station.broken_bikes).to eq([broken_bike])
 	end
 
 	# it 'will call the van when 3 broken bikes' do

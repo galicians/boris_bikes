@@ -38,7 +38,12 @@ module BikeContainer
   end
 
 	def broken_bikes
-		bikes.inject {|bike| bike.broken? }
+		bikes.select {|bike| bike.broken? }
 	end
+
+	def deliver(destination)
+
+	end
+
 
 end
