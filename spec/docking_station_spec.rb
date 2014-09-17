@@ -15,24 +15,24 @@ describe DockingStation do
 		expect(station.bike_count).to eq(1)		
 	end
 
-	it "should release a bike" do
+	it "dock station should release a bike" do
 		station.dock(bike)
 		station.release(bike)
 		expect(station.bike_count).to eq(0)
 	end
 
-	it "should have a finite capacity" do
+	it "dock station should have a finite capacity" do
 		expect(station).not_to be_full
 		fill_station(station)
 		expect(station).to be_full
 	end	
 
-	it "should not accept a bike when full" do
+	it "dock station should not accept a bike when full" do
 		fill_station(station)
 		expect(lambda { station.dock(bike) }).to raise_error(RuntimeError)
 	end
 
-	it "should provide the list of avilable bikes" do
+	it "dock station should provide the list of available bikes" do
 		working_bike, broken_bike = Bike.new, Bike.new
 		broken_bike.break!
 		station.dock(working_bike)
