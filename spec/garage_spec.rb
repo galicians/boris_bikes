@@ -1,5 +1,6 @@
 require 'Garage'
 
+
 # 1 it should have a finite capacity
 # 2 it should fix a bike
 # 3 it should keep the count of the available bikes

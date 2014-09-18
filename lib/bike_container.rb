@@ -19,7 +19,7 @@ module BikeContainer
   end
 
   def dock(bike)
-    raise "Station is full" if full?
+    raise "#{self.to_s} is full" if full?
     bikes << bike
   end
 
@@ -41,9 +41,7 @@ module BikeContainer
 		bikes.select {|bike| bike.broken? }
 	end
 
-	def deliver(destination)
 
-	end
 
 
 end

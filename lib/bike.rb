@@ -1,4 +1,7 @@
+
+
 class Bike
+
 	
 	def initialize
 		self.fix!

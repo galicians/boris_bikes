@@ -19,15 +19,17 @@ describe BikeContainer do
 		expect(station.capacity).to eq(123)
 	end
 
-	it "should deliver all the fixed bikes" do
-		van = Van.new
-		5.times {van.dock(bike)}
-		expect(van.bike_count).to eq(5)
-		4.times {station.dock(bike.break!)}
-		expect(station.bike_count).to eq(4)		# why is it failing with broken_bikes.size???
-		van.deliver(station)
-		expect(station)
+	it "should return the available bikes" do
+		expect(holder.bike_count).to eq(0)
+		holder.dock(bike)
+		expect(holder.bike_count).to eq(1)
+	end
 
+	it 'dock station should provide the list of broken bikes' do
+		broken_bike, working_bike = Bike.new, Bike.new
+		broken_bike.break!
+		holder.dock(broken_bike)
+		expect(holder.broken_bikes).to eq([broken_bike])
 	end
 	
 end
