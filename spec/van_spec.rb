@@ -64,7 +64,7 @@ describe Van do
 	end
 
 	it "should pick up no broken bikes from the garage" do
-		11.times {garage.dock(Bike.new)}
+		5.times {garage.dock(Bike.new)}
 		expect(garage.bike_count).to eq(5)
 		broken_bike = Bike.new
 		broken_bike.break!
